@@ -96,6 +96,18 @@ long long ehprimo(long long num)
     return count==2;
 }
 
+long long mod_exp(long long base, long long exp, long long mod) {
+    long long result = 1;
+    base = base % mod;
+    while (exp > 0) {
+        if (exp % 2 == 1)
+            result = (result * base) % mod;
+        base = (base * base) % mod;
+        exp = exp / 2;
+    }
+    return result;
+}
+
 int main()
 {
     long long H, G, n;
@@ -241,9 +253,7 @@ int main()
     printf("Como x2 eh igual a 1, esse valor intermediario tambem eh igual a 1.\n");
 
     printf("\n%lld^%lld mod %lld:\n", a, r, n1);
-    long long bufferr=r, buffera=1;
-    while(bufferr--) buffera *= a;
-    long long ans = buffera%n1;
+    long long ans = mod_exp(a, r, n1);
     printf("%lld^%lld mod %lld = %lld\n", a, r, n1, ans);
 
     printf("\nNo fim das contas, temos:\n");
