@@ -263,6 +263,7 @@ int main()
     printf("(%lld^%lld) mod %lld = 1\n", x2, q, n1);
     printf("(%lld^%lld) mod %lld = %lld\n", a, r, n1, ans);
     printf("\n%lld mod %lld = %lld\n", ans, n1, ans%n1);
+    printf("Ou seja, %d^%d mod %d = %d\n", a, x, n1, ans%n1);
 
     return 0;
 }
